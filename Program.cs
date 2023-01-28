@@ -10,10 +10,29 @@ namespace Snake_And_Ladder
             int Player_position = 0;
             Console.WriteLine("Position = " + Player_position);
             Random random= new Random();
-            int Die_num =random.Next(7);
-            Console.WriteLine($"{Die_num}");
+            int Dice_num =random.Next(7);
+            Console.WriteLine($"{Dice_num}");
 
-           
+            int option = random.Next(3);
+            switch (option)
+            {
+                case 0:
+                    Console.WriteLine("No play");
+                    Console.WriteLine("the position is" + Player_position);
+                    break;
+                case 1:
+                    Console.WriteLine("Ladder");
+                    Player_position = Player_position + Dice_num;
+                    Console.WriteLine("the position is" + Player_position);
+                    break;
+                case 2:
+                    Console.WriteLine("Snake");
+                    Player_position = Player_position - Dice_num;
+                    Console.WriteLine("the position is" + Player_position);
+                    break;
+            }
+
+
         }   
     }
 }
