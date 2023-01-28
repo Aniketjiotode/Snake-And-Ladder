@@ -10,11 +10,10 @@ namespace Snake_And_Ladder
             int Player_position = 0;
             Console.WriteLine("Position = " + Player_position);
             Random random= new Random();
-            int Dice_num =random.Next(7);
-            Console.WriteLine($"{Dice_num}");
-
-            while (Player_position <= 100)
+         
+            while (Player_position < 100)
             {
+                int Dice_num =random.Next(1,7);
                 int option = random.Next(3);
                 switch (option)
                 {
@@ -37,7 +36,11 @@ namespace Snake_And_Ladder
                         if (Player_position < 0)
                         {
                             Player_position = 0;
-                            Console.WriteLine(" position = " + Player_position);
+                           
+                        }
+                        else if (Player_position > 100)
+                        {
+                            Player_position = Player_position - Dice_num;
                         }
             }
         }   
