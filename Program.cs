@@ -9,12 +9,13 @@ namespace Snake_And_Ladder
             Console.WriteLine("Snake and Ladder game played with single player at start position 0");
             int Player_position = 0;
             Console.WriteLine("Position = " + Player_position);
+            int dice_Roll = 0;
             Random random= new Random();
-            int Dice_num =random.Next(7);
-            Console.WriteLine($"{Dice_num}");
 
-            while (Player_position <= 100)
+            while (Player_position < 100)
             {
+                dice_Roll++;
+                int Dice_num =random.Next(1,7);
                 int option = random.Next(3);
                 switch (option)
                 {
@@ -33,13 +34,17 @@ namespace Snake_And_Ladder
                         Console.WriteLine(" position =" + Player_position);
                         break;
                 }
+                    if (Player_position < 0)
+                    {
+                        Player_position = 0;
 
-                        if (Player_position < 0)
-                        {
-                            Player_position = 0;
-                            Console.WriteLine(" position = " + Player_position);
-                        }
+                    }
+                    else if (Player_position > 100)
+                    {
+                        Player_position = Player_position - Dice_num;
+                    }
             }
+            Console.WriteLine($"Number of times the dice was played to win the game = {dice_Roll}");
         }   
     }
 }
